@@ -26,27 +26,28 @@ async function renderLoja(){
     const list = products.filter(p=>p.game===active);
     for(const p of list){
       mount.appendChild(el(`
-        <div class="card">
+        <article class="card product-card">
           <div class="pill">${p.game}</div>
-          <h3 style="margin:10px 0 6px">${p.title}</h3>
-          <div class="sub">${p.short}</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap">
+          <h3 class="h2" style="margin:10px 0 6px">${p.title}</h3>
+          <p class="sub">${p.short}</p>
+          <div class="product-meta">
             <div class="price">${money(p.price_brl)}</div>
-            <button class="cta" data-buy="${p.slug}">Comprar</button>
+            <button class="cta btn-block-mobile" data-buy="${p.slug}">Comprar</button>
           </div>
-        </div>
+        </article>
       `));
     }
-    mount.querySelectorAll("[data-buy]").forEach(b=>{
-      b.addEventListener("click", ()=> startCheckout(b.getAttribute("data-buy")));
+
+    mount.querySelectorAll("[data-buy]").forEach((b)=>{
+      b.addEventListener("click", ()=> startCheckout(b));
     });
   }
 
-  tabs.forEach(t=>{
+  tabs.forEach((t)=>{
     t.addEventListener("click", ()=>{
       active = t.getAttribute("data-tab");
-      tabs.forEach(x=>x.classList.remove("btn"));
-      tabs.forEach(x=>x.classList.add("btn"));
+      tabs.forEach((x)=>x.setAttribute("aria-pressed", "false"));
+      t.setAttribute("aria-pressed", "true");
       paint();
     });
   });
@@ -54,19 +55,34 @@ async function renderLoja(){
   paint();
 }
 
-async function startCheckout(slug){
-  // cria sessão e redireciona pro Stripe Checkout
-  const r = await fetch(API("create-checkout-session"),{
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body: JSON.stringify({ slug })
-  });
-  const j = await r.json();
-  if(!r.ok){
-    alert(j.error || "Falha no checkout.");
-    return;
+async function startCheckout(button){
+  if(!button) return;
+
+  const slug = button.getAttribute("data-buy");
+  const oldLabel = button.textContent;
+  button.disabled = true;
+  button.classList.add("loading");
+  button.textContent = "Abrindo checkout...";
+
+  try {
+    const r = await fetch(API("create-checkout-session"),{
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ slug })
+    });
+    const j = await r.json();
+
+    if(!r.ok){
+      throw new Error(j.error || "Falha no checkout.");
+    }
+
+    window.location.href = j.url;
+  } catch (err) {
+    alert(err.message || "Falha no checkout.");
+    button.disabled = false;
+    button.classList.remove("loading");
+    button.textContent = oldLabel;
   }
-  window.location.href = j.url;
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
