@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "valorant-rotina-mira-7d",
+    "game": "Valorant",
+    "title": "Rotina de Mira (7 dias) — consistência sem atalhos",
+    "price_brl": 3990,
+    "short": "Treino diário de 15–25min com checklist e método.",
+    "deliverable_type": "link",
+    "deliverable_url": "https://example.com/entrega/valorant-rotina"
+  },
+  {
+    "slug": "valorant-vod-review-1",
+    "game": "Valorant",
+    "title": "VOD Review — 1 partida (com plano de correção)",
+    "price_brl": 7990,
+    "short": "Análise objetiva + 3 prioridades claras pra próxima semana.",
+    "deliverable_type": "manual"
+  },
+  {
+    "slug": "valorant-config-pro",
+    "game": "Valorant",
+    "title": "Config Pro — sensi + crosshair + checklist",
+    "price_brl": 4990,
+    "short": "Ajustes legítimos e práticos para estabilidade e consistência.",
+    "deliverable_type": "manual"
+  },
+  {
+    "slug": "freefire-rotina-capa-7d",
+    "game": "Free Fire",
+    "title": "Rotina de Capa (7 dias) — controle e velocidade",
+    "price_brl": 2990,
+    "short": "Rotina curta (10–20min/dia) + sensibilidade sem mito.",
+    "deliverable_type": "link",
+    "deliverable_url": "https://example.com/entrega/freefire-capa"
+  },
+  {
+    "slug": "freefire-hud-profissional",
+    "game": "Free Fire",
+    "title": "HUD Profissional — montagem + ajustes finos",
+    "price_brl": 3990,
+    "short": "HUD adaptado ao seu aparelho + checklist de consistência.",
+    "deliverable_type": "manual"
+  },
+  {
+    "slug": "freefire-vod-review-1",
+    "game": "Free Fire",
+    "title": "VOD Review — 1 partida (com plano de correção)",
+    "price_brl": 6990,
+    "short": "Correção de padrões (troca/movimento) + plano de treino.",
+    "deliverable_type": "manual"
+  }
+]

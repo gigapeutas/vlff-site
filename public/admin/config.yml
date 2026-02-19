@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: gigapeutas/vlff-site
+  branch: main
+
+media_folder: "public/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "products"
+    label: "Produtos"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Jogo", name: "game", widget: "select", options: ["Free Fire", "Valorant"] }
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Preço (centavos BRL)", name: "price_brl", widget: "number" }
+      - { label: "Resumo curto", name: "short", widget: "string" }
+      - { label: "Tipo entrega", name: "deliverable_type", widget: "select", options: ["manual","link"] }
+      - { label: "URL entrega (se link)", name: "deliverable_url", widget: "string", required: false }

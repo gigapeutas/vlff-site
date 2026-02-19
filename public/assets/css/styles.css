@@ -1,0 +1,45 @@
+:root{
+  --bg:#07090f;
+  --panel: rgba(255,255,255,.06);
+  --stroke: rgba(255,255,255,.12);
+  --text:#e9eefc;
+  --muted:#a7b0c6;
+  --cta:#39ff88;
+  --cta2:#19c86a;
+  --shadow: 0 18px 60px rgba(0,0,0,.55);
+  --r:18px;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:
+    radial-gradient(900px 600px at 20% -10%, rgba(57,255,136,.14), transparent 60%),
+    radial-gradient(700px 500px at 85% 10%, rgba(92,128,255,.10), transparent 60%),
+    var(--bg);
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 18px}
+.topbar{position:sticky;top:0;z-index:99;background:rgba(7,9,15,.62);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900}
+.badge{font-size:12px;padding:6px 10px;border:1px solid var(--stroke);border-radius:999px;color:var(--muted);background:rgba(255,255,255,.04)}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);font-weight:850}
+.btn:hover{background:rgba(255,255,255,.08)}
+.cta{border:0;border-radius:999px;padding:11px 14px;background:linear-gradient(180deg,var(--cta),var(--cta2));color:#051009;font-weight:950;box-shadow:0 10px 30px rgba(57,255,136,.18)}
+.hero{padding:28px 0}
+.card{border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);border-radius:var(--r);box-shadow:0 10px 30px rgba(0,0,0,.20);padding:14px}
+.h1{font-size:40px;line-height:1.05;letter-spacing:-.6px;margin:10px 0}
+.sub{color:var(--muted);line-height:1.5}
+.grid{display:grid;gap:12px}
+.products{display:grid;gap:12px}
+.pill{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+.price{font-weight:950}
+.footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.08);margin-top:26px;color:var(--muted);font-size:12px}
+@media (min-width:860px){
+  .h1{font-size:52px}
+  .products{grid-template-columns:repeat(3,1fr)}
+}
