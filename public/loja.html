@@ -12,29 +12,32 @@
     <div class="container">
       <div class="nav">
         <a class="brand" href="index.html">
-          <span style="width:10px;height:10px;border-radius:999px;background:var(--cta);display:inline-block"></span>
+          <span class="brand-dot"></span>
           <span>VLFF</span>
+          <span class="badge">Loja oficial</span>
         </a>
         <div class="actions">
-          <a class="btn" href="index.html">Home</a>
+          <a class="btn btn-block-mobile" href="index.html">Home</a>
+          <a class="cta btn-block-mobile" href="#products">Ver produtos</a>
         </div>
       </div>
     </div>
   </div>
 
   <main class="container">
-    <section class="hero">
+    <section class="hero section">
       <div class="card">
         <div class="pill">Escolha o jogo</div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-          <button class="btn" data-tab="Free Fire">Free Fire</button>
-          <button class="btn" data-tab="Valorant">Valorant</button>
+        <h1 class="h1">Treinos e produtos para subir de nível com método.</h1>
+        <p class="sub">Selecione o jogo para filtrar o catálogo e toque em “Comprar” para abrir o checkout.</p>
+        <div class="tab-row" role="tablist" aria-label="Filtro por jogo">
+          <button class="btn tab-btn" aria-pressed="true" data-tab="Free Fire">Free Fire</button>
+          <button class="btn tab-btn" aria-pressed="false" data-tab="Valorant">Valorant</button>
         </div>
-        <div class="sub" style="margin-top:10px">Clique em “Comprar” para abrir o checkout.</div>
       </div>
     </section>
 
-    <section class="products" id="products"></section>
+    <section class="products" id="products" aria-live="polite"></section>
 
     <footer class="footer">
       Conteúdo educativo • Sem cheats/hacks • Não afiliado.
